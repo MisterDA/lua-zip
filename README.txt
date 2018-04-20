@@ -1,5 +1,6 @@
 **********************************************************************
 * Author  : Brian Maher <maherb at brimworks dot com>
+* Fork    : Antonin Décimo
 * Library : lua_zip - Lua 5.1 interface to libzip
 *
 * The MIT License
@@ -34,10 +35,10 @@ To build this library, you need CMake, get it here:
 Loading the library:
 
     If you built the library as a loadable package
-        [local] zip = require 'brimworks.zip'
+        [local] zip = require 'misterda.zip'
 
     If you compiled the package statically into your application, call
-    the function "luaopen_brimworks_zip(L)". It will create a table
+    the function "luaopen_misterda_zip(L)". It will create a table
     with the zip functions and leave it on the stack.
 
 Note:
@@ -48,12 +49,15 @@ Note:
     "office open xml", and therefore the author was motivated to write
     this zip specific binding.
 
-Why brimworks prefix?
+Why brimworks/misterda prefix?
 
     When this module was created, there was already a binding to
     zziplib named "zip" and since the author owns the brimworks.com
     domain he felt prefixing with brimworks would avoid in collisions
     in case people need to use the zziplib binding at the same time.
+
+    This fork is published under the (ugly) namespace of "misterda",
+    to follow brimworks' path.
 
 -- zip functions --
 

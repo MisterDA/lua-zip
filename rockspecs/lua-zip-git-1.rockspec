@@ -7,12 +7,12 @@ description = {
 lua-zip is a binding to libzip, which you can get from:
     http://www.nih.at/libzip/
 ]],
-    homepage = "https://github.com/brimworks/lua-zip",
+    homepage = "https://github.com/misterda/lua-zip",
     license = "MIT"
 }
 
 source = {
-    url = "git://github.com/brimworks/lua-zip.git",
+    url = "git://github.com/misterda/lua-zip.git",
     dir = "lua-zip"
 }
 
@@ -29,7 +29,7 @@ external_dependencies = {
 build = {
    type = "builtin",
    modules = {
-      ["brimworks.zip"] = {
+      ["misterda.zip"] = {
          sources   = { "lua_zip.c" },
          incdirs   = { "$(ZIP_INCDIR)" },
          libdirs   = { "$(ZIP_LIBDIR)" },

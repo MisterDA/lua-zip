@@ -12,7 +12,7 @@ local tmp_dir
 function load_libs(build_dir)
     -- Set-up cpath and path properly:
     build_dir = build_dir:gsub("(.*)/*", "%1")
-    local f=io.open(build_dir .. "/brimworks/zip.so", "r")
+    local f=io.open(build_dir .. "/misterda/zip.so", "r")
     if ( f ) then
         f:close()
         package.cpath = build_dir .. "/?.so;" .. package.cpath
@@ -22,7 +22,7 @@ function load_libs(build_dir)
 
     -- Load libraries:
     tap = require("tap")
-    zip = require("brimworks.zip")
+    zip = require("misterda.zip")
     ok  = tap.ok
     is_deeply = tap.is_deeply
 
@@ -62,7 +62,7 @@ function test_file_source()
 
     os.remove(test_file_source)
 
-    local ar = assert(zip.open(test_file_source, 
+    local ar = assert(zip.open(test_file_source,
                                 zip.OR(zip.CREATE, zip.EXCL)));
 
     ar:add("dir/add.txt", "file", _0, 2, 12)
@@ -90,9 +90,9 @@ function test_zip_source_circular()
     os.remove(test_zip_source1)
     os.remove(test_zip_source2)
 
-    local ar1 = assert(zip.open(test_zip_source1, 
+    local ar1 = assert(zip.open(test_zip_source1,
                                 zip.OR(zip.CREATE, zip.EXCL)));
-    local ar2 = assert(zip.open(test_zip_source2, 
+    local ar2 = assert(zip.open(test_zip_source2,
                                 zip.OR(zip.CREATE, zip.EXCL)));
 
     assert(ar1:add("file.txt", "string", "AR1"))
@@ -115,7 +115,7 @@ function test_zip_source()
 
     local ar_ro = assert(zip.open(test_zip_file))
 
-    local ar = assert(zip.open(test_zip_source, 
+    local ar = assert(zip.open(test_zip_source,
                                 zip.OR(zip.CREATE, zip.EXCL)));
 
     ar:add("dir/add.txt", "zip", ar_ro, 2,
@@ -436,7 +436,7 @@ function test_open_close()
     collectgarbage"collect"
 
     ok(true, "test_open_close was successful")
-    
+
 end
 
 main()
